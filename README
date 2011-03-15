@@ -1,5 +1,17 @@
-# create the project
+# Project Creation
 
-Rails 3, without prototype or test::unit
+= Rails 3, without prototype or test::unit
+  
+  rails new scanet -T -J -d postgresql
 
-rails new scanet -T -J -d postgresql
+# RMV(Ruby Version Manager)
+
+#Project Setup
+
+RVM will create an empty gemset for scanet project, so, first you should run
+  
+  gem install bundler
+  
+After bundler installed, run
+
+  bundler install
