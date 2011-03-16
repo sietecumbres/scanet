@@ -9,6 +9,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'compass'
+gem 'formtastic', '~> 1.2.3'
 
 group :development, :test do
   gem 'rspec-rails'
