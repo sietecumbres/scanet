@@ -1,9 +1,11 @@
 Scanet::Application.routes.draw do
   
+  get "dashboard/index"
+
   scope "(:locale)", :locale => /es|en/ do # Global scope to handle internationalization in the whole application
   end
   
-  
+  root :to => 'dashboard#index'
   
   # The priority is based upon order of creation:
   # first created -> highest priority.
