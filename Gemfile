@@ -8,6 +8,7 @@ gem 'rails3-generators'
 gem 'haml'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'compass'
 
 group :development, :test do
   gem 'rspec-rails'
