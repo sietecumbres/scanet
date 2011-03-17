@@ -22,7 +22,10 @@ class User < ActiveRecord::Base
 
   def self.from_session(token)
     return if token.blank?
-    login.user if login = Login.where(:token => token).first
+    if login = Login.where(:token => token).first
+      return login.user
+    end
+    return nil
   end
 
   def password_is?(pw)

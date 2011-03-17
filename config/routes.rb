@@ -2,7 +2,7 @@ Scanet::Application.routes.draw do
   
   scope "(:locale)", :locale => /es|en/ do # Global scope to handle internationalization in the whole application
     match '/login' => 'sessions#new', :as => :login
-    match '/logout' => 'session#destroy'
+    match '/logout' => 'sessions#destroy'
     resources :sessions, :only => ['create']
   end
   
