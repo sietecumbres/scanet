@@ -8,6 +8,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :password_hash
       t.string :password_salt
       t.string :verification_token
+      t.boolean :admin, :default => false
       t.boolean :verified, :default => false
       t.timestamps
     end
