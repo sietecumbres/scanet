@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316231513) do
+ActiveRecord::Schema.define(:version => 20110316232912) do
+
+  create_table "logins", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "token",          :null => false
+    t.string   "ip_address"
+    t.string   "remote_address"
+    t.string   "user_agent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "first_name",                            :null => false

@@ -1,6 +1,7 @@
 class CreateLogins < ActiveRecord::Migration
   def self.up
     create_table :logins do |t|
+      t.integer :user_id
       t.string :token, :null => false
       t.string :ip_address
       t.string :remote_address

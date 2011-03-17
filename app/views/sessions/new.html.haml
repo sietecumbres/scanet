@@ -1,2 +1,5 @@
-%h1 Sessions#new
-%p Find me in app/views/sessions/new.html.haml
+= semantic_form_for :session, :url => sessions_path do |session|
+  = session.input :login
+  = session.input :password
+  = session.buttons do
+    = session.commit_button 'Submit'
