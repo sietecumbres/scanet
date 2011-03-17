@@ -1,5 +1,18 @@
 class SessionsController < ApplicationController
   
+  def show
+    reset_session
+    @user = User.from_session(params[:id])
+    if @user.present?
+      @user.update_attribute(:verified, true)
+      @user.invalidate_token!(params[:id])
+      session[:session_token] = @user.login!(remote_information)
+      redirect_to edit_user_path(@user)
+    else
+      render :action => :new
+    end
+  end
+  
   def new
   end
   

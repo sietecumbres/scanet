@@ -23,13 +23,14 @@ ActiveRecord::Schema.define(:version => 20110316232912) do
   end
 
   create_table "users", :force => true do |t|
-    t.string   "first_name",                            :null => false
-    t.string   "last_name",                             :null => false
-    t.string   "username",                              :null => false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "username"
     t.string   "email",                                 :null => false
     t.string   "password_hash"
     t.string   "password_salt"
     t.string   "verification_token"
+    t.boolean  "admin",              :default => false
     t.boolean  "verified",           :default => false
     t.datetime "created_at"
     t.datetime "updated_at"

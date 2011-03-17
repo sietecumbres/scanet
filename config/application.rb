@@ -28,7 +28,7 @@ module Scanet
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
-    config.i18n.default_locale = :es
+    # config.i18n.default_locale = :es
 
     # JavaScript files you want as :defaults (application.js is always included).
     config.action_view.javascript_expansions[:defaults] = %w()
@@ -43,5 +43,18 @@ module Scanet
       g.test_framework :rspec, :fixture => true
       g.fixture_replacement :factory_girl, :dir => 'spec/factories'
     end
+    
+    config.action_mailer.perform_deliveries = true
+		config.action_mailer.raise_delivery_errors = true
+		config.action_mailer.delivery_method = :smtp
+		config.action_mailer.smtp_settings = {
+		  :address              => "smtp.gmail.com",  
+		  :port                 => 587,
+		  :domain               => "espiral.co",  
+		  :user_name            => "info@espiral.co",  
+		  :password             => "espiral_info",  
+		  :authentication       => "plain",  
+		  :enable_starttls_auto => true  
+		}
   end
 end

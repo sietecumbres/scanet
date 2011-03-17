@@ -1,0 +1,6 @@
+= semantic_form_for @user, :url => users_path do |f|
+  = f.semantic_errors
+  = f.inputs do
+    = f.input :email
+  = f.buttons do
+    = f.commit_button 'Create User'

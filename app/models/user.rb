@@ -4,14 +4,24 @@ class User < ActiveRecord::Base
   
   has_many :logins
   
-  validates :first_name, :presence => true
-  validates :last_name, :presence => true
-  validates :username, :presence => true, :uniqueness => true, :length => {:maximum => 12, :minimum => 4}
-  validates :email, :presence => true, :uniqueness => true
-  validates :password, :confirmation => true, :length => {:minimum => 6}
+  validates :first_name, :presence => true, :if => :validate_on_edit?
+  validates :last_name, :presence => true, :if => :validate_on_edit?
+  validates :username, :presence => true, :uniqueness => true, :length => {:maximum => 12, :minimum => 4}, :if => :validate_on_edit?
+  validates :email, :presence => true, :uniqueness => true, :unless => :validate_on_edit?
+  validates :password, :presence => true, :length => {:minimum => 6}, :if => :validate_on_edit?
+  validates_confirmation_of :password, :confirmation => true, :if => :validate_on_edit?
   
   attr_reader :password
-  attr_accessor :password_confirmation
+  attr_accessor :password_confirmation, :step
+  
+  
+  def validate_on_edit?
+    @step == :edit
+  end
+  
+  def full_name
+    "#{first_name} #{last_name}"
+  end
   
   def password=(pw)
     @password = pw

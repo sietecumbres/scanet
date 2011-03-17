@@ -1,12 +1,15 @@
 Scanet::Application.routes.draw do
-  
-  scope "(:locale)", :locale => /es|en/ do # Global scope to handle internationalization in the whole application
-    match '/login' => 'sessions#new', :as => :login
-    match '/logout' => 'sessions#destroy'
-    resources :sessions, :only => ['create']
+
+  match '/login' => 'sessions#new', :as => :login
+  match '/logout' => 'sessions#destroy'
+  resources :sessions, :only => ['create', 'show'] do
+    member do
+      
+    end
   end
+  resources :users
   
-  match '/dashborad' => 'dashboard#index', :as => :dashboard
+  match '/dashboard' => 'dashboard#index', :as => :dashboard
   root :to => 'dashboard#index'
   
   # The priority is based upon order of creation:
