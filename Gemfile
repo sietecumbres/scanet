@@ -13,6 +13,7 @@ gem 'formtastic', '~> 1.2.3'
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'ruby-debug19'
 end
 
 group :test, :spec, :cucumber do
