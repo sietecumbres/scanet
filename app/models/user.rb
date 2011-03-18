@@ -8,12 +8,15 @@ class User < ActiveRecord::Base
   validates :last_name, :presence => true, :if => :validate_on_edit?
   validates :username, :presence => true, :uniqueness => true, :length => {:maximum => 12, :minimum => 4}, :if => :validate_on_edit?
   validates :email, :presence => true, :uniqueness => true, :unless => :validate_on_edit?
-  validates :password, :presence => true, :length => {:minimum => 6}, :if => :validate_on_edit?
-  validates_confirmation_of :password, :confirmation => true, :if => :validate_on_edit?
+  validates :password, :presence => true, :length => {:minimum => 6}, :if => :validate_password_on_edit?
+  validates_confirmation_of :password, :confirmation => true, :if => :validate_password_on_edit?
   
   attr_reader :password
   attr_accessor :password_confirmation, :step
   
+  def validate_password_on_edit?
+    (!password_hash.present? || @password.present?) && validate_on_edit?
+  end
   
   def validate_on_edit?
     @step == :edit

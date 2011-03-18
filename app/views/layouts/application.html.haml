@@ -10,5 +10,7 @@
     = javascript_include_tag 'jquery.min', 'jquery-ui.min', 'rails', 'application'
     = csrf_meta_tag
   %body
-    = link_to 'logout', logout_path if logged_in?
+    - if logged_in?
+      = link_to 'logout', logout_path
+      = link_to 'Editar', edit_user_path(current_user)
     = yield

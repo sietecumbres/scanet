@@ -6,6 +6,7 @@
     = f.input :last_name
     = f.input :password, :as => :password
     = f.input :password_confirmation, :as => :password
+    = f.input :admin, :as => :boolean, :label => 'Is admin?'
   = f.buttons do
     = f.commit_button 'Update User'
 

@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.step = :edit
+    params[:user].delete(:password) and params[:user].delete(:password_confirmation) unless params[:user][:password].present?
     if @user.update_attributes(params[:user])
       redirect_to dashboard_path
     else
