@@ -2,5 +2,6 @@
   = f.semantic_errors
   = f.inputs do
     = f.input :email
+    = f.input :admin, :as => :boolean, :label => 'Is admin?'
   = f.buttons do
     = f.commit_button 'Create User'
