@@ -1,18 +1,27 @@
 class UsersController < ApplicationController
+  before_filter :require_current_user
+  before_filter :require_admin_user, :except => ['new', 'create']
+  
   def new
     @user = User.new
+    @user.step = :new
   end
   
   def create
     @user = User.new params[:user]
-    @user.step = :create
+    @user.step = :new
     
     if @user.save
       UserMailer.verification(@user, @user.verify_token(remote_information)).deliver
-      redirect_to dashboard_path
-    else
-      render :action => :new
+      if current_user.master_user?
+        @user.update_attribute(:admin, true)
+        current_user.destroy
+        reset_session
+        redirect_to login_path
+        return
+      end
     end
+    render :action => :new
   end
   
   def edit

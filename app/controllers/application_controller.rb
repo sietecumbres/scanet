@@ -31,6 +31,11 @@ class ApplicationController < ActionController::Base
     
     def require_current_user
       return true if logged_in?
-      redirect_to login_path, :notice => 'You must be logged in to take that action.' unless request.xhr?
+      redirect_to login_path, :notice => 'You must be logged in to take that action.'
+    end
+    
+    def require_admin_user
+      return true if logged_in? and current_user.admin?
+      redirect_to dashboard_path, :notice => 'You must be an admin to take that action.'
     end
 end

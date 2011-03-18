@@ -21,7 +21,11 @@ class SessionsController < ApplicationController
       if user.password_is?(params[:session][:password])
         reset_session
         session[:session_token] = user.login!(remote_information)
-        redirect_to dashboard_path
+        if user.master_user?
+          redirect_to new_user_path
+        else
+          redirect_to dashboard_path
+        end
         return 
       end
     end

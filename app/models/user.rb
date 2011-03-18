@@ -84,4 +84,12 @@ class User < ActiveRecord::Base
     where("username = ? OR email = ?", eu, eu).first
   end
   
+  def master_user?
+    !!username[/master/i]
+  end
+  
+  def admin?
+    admin
+  end
+  
 end
