@@ -38,5 +38,18 @@ class SessionsController < ApplicationController
     reset_session
     redirect_to root_path
   end
+  
+  def forgot
+  end
+  
+  def reset
+    if (user = User.find_by_identifiers(params[:session][:login])).present?
+      UserMailer.forgot_password(user, user.verify_token(remote_information)).deliver
+      flash[:notice] = 'Password reset link has been send to your email.'
+    else
+      flash[:notice] = 'User does not exist.'
+    end
+    render :action => :forgot
+  end
 
 end

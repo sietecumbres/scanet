@@ -1,0 +1,6 @@
+%h2 ¿Olvidó su contraseña?
+= semantic_form_for :session, :url => reset_password_path do |f|
+  = f.inputs do
+    = f.input :login
+  = f.buttons do
+    = f.commit_button 'Send'

@@ -2,11 +2,10 @@ Scanet::Application.routes.draw do
 
   match '/login' => 'sessions#new', :as => :login
   match '/logout' => 'sessions#destroy'
-  resources :sessions, :only => ['create', 'show'] do
-    member do
-      
-    end
-  end
+  match '/forgot' => 'sessions#forgot', :as => :forgot_password
+  match '/reset' => 'sessions#reset', :as => :reset_password
+  
+  resources :sessions
   resources :users
   
   match '/dashboard' => 'dashboard#index', :as => :dashboard
