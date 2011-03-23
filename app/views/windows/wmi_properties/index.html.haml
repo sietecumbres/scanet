@@ -8,5 +8,6 @@
       %td
         = link_to 'Ver', windows_property_path(property, @class_parameter)
         = link_to 'Editar', edit_windows_property_path(property, @class_parameter)
+        = link_to 'Clase', windows_class_path(property.klass)
         = link_to 'Eliminar', windows_property_path(property, @class_parameter), :method => 'delete', :confirm => '¿Está seguro?'
 = link_to 'Nuevo', new_windows_property_path(@class_parameter)

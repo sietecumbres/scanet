@@ -9,5 +9,6 @@
         = link_to 'ver', windows_class_path(klass, @namespace_parameter)
         = link_to 'editar', edit_windows_class_path(klass, @namespace_parameter)
         = link_to 'Propiedades', windows_properties_path({:class => klass.id})
+        = link_to 'Namespace', windows_namespace_path(klass.namespace)
         = link_to 'eliminar', windows_class_path(klass, @namespace_parameter), :method => 'delete', :confirm => '¿Está seguro?'
 = link_to 'Nuevo', new_windows_class_path(@namespace_parameter)
