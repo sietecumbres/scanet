@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(:version => 20110323013158) do
   end
 
   create_table "windows_wmi_classes", :force => true do |t|
-    t.integer  "namespace_id"
+    t.integer  "wmi_namespace_id"
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"

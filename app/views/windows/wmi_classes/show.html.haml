@@ -1,2 +1,11 @@
-%h1 Windows::WmiClasses#show
-%p Find me in app/views/windows/wmi_classes/show.html.haml
+%h2 Clase
+%p
+  %label Namespace
+  %label= @class.namespace.name
+%p
+  %label Nombre
+  %label= @class.name
+%p
+  = link_to 'Editar', edit_windows_class_path(@class, @namespace_parameter)
+  = link_to 'Eliminar', windows_class_path(@class, @namespace_parameter), :method => 'delete', :confirm => '¿Está seguro?'
+  = link_to 'Atrás', windows_classes_path(@namespace_parameter)

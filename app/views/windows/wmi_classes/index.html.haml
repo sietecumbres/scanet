@@ -1,2 +1,12 @@
-%h1 Windows::WmiClasses#index
-%p Find me in app/views/windows/wmi_classes/index.html.haml
+%h2 Clases
+%table
+  - @classes.each do |klass|
+    %tr
+      %td= klass.name
+      %td= klass.id
+      %td= klass.namespace.name
+      %td
+        = link_to 'ver', windows_class_path(klass, @namespace_parameter)
+        = link_to 'editar', edit_windows_class_path(klass, @namespace_parameter)
+        = link_to 'eliminar', windows_class_path(klass, @namespace_parameter), :method => 'delete', :confirm => '¿Está seguro?'
+= link_to 'Nuevo', new_windows_class_path(@namespace_parameter)

@@ -1,7 +1,7 @@
 class CreateWindowsWmiClasses < ActiveRecord::Migration
   def self.up
     create_table :windows_wmi_classes do |t|
-      t.integer :namespace_id
+      t.integer :wmi_namespace_id
       t.string :name
       t.timestamps
     end

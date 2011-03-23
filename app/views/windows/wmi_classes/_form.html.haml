@@ -1,0 +1,8 @@
+= form.inputs do
+  - if @namespace.present?
+    = form.input :namespace, :as => :hidden, :value => @namespace.id, :name => 'namespace'
+  = form.input :wmi_namespace_id, :as => :select, :collection => Windows::WmiNamespace.all.collect{|ns| [ns.name, ns.id]}
+  = form.input :name
+= form.buttons do
+  = form.commit_button 'Save'
+  = link_to 'Cancelar', windows_classes_path(@namespace_parameter)

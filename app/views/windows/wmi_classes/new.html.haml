@@ -1,2 +1,3 @@
-%h1 Windows::WmiClasses#new
-%p Find me in app/views/windows/wmi_classes/new.html.haml
+%h2 Nueva Clase
+= semantic_form_for @class, :url => windows_classes_path(@class) do |klass|
+  = render :partial => 'form', :object => klass

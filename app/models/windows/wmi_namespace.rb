@@ -1,5 +1,5 @@
 class Windows::WmiNamespace < ActiveRecord::Base
-  has_many :wmi_classes, :class_name => 'windows/wmi_class'
+  has_many :classes, :class_name => 'Windows::WmiClass'
   
   validates :name, :presence => true, :uniqueness => true
   
