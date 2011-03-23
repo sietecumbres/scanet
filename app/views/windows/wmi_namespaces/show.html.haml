@@ -4,4 +4,5 @@
 %p
   = link_to 'Editar', edit_windows_namespace_path(@namespace)
   = link_to 'Eliminar', windows_namespace_path(@namespace), :method => 'delete', :confirm => '¿Está seguro?'
+  = link_to 'Clases', windows_classes_path({:namespace => @namespace.id})
   = link_to 'Atrás', windows_namespaces_path

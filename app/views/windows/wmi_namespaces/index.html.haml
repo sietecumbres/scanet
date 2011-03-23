@@ -7,6 +7,7 @@
       %td
         = link_to 'ver', windows_namespace_path(ns)
         = link_to 'editar', edit_windows_namespace_path(ns)
+        = link_to 'Clases', windows_classes_path({:namespace => ns.id})
         = link_to 'eliminar', windows_namespace_path(ns), :method => 'delete', :confirm => '¿Está seguro?'
 
 = link_to 'Nuevo', new_windows_namespace_path
