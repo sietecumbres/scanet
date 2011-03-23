@@ -1,0 +1,2 @@
+module Windows::WmiNamespacesHelper
+end

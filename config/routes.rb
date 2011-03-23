@@ -11,6 +11,12 @@ Scanet::Application.routes.draw do
   match '/dashboard' => 'dashboard#index', :as => :dashboard
   root :to => 'dashboard#index'
   
+  namespace :admin do
+    namespace :windows do
+      resources :wmi_namespaces
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
