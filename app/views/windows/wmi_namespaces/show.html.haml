@@ -1,0 +1,7 @@
+%p
+  %label id
+  %label= @namspace.name
+%p
+  = link_to 'Editar', edit_windows_namespace_path(@namespace)
+  = link_to 'Eliminar', windows_namespace_path(@namespace), :method => 'delete', :confirm => '¿Está seguro?'
+  = link_to 'Atrás', windows_namespaces_path

@@ -11,12 +11,10 @@ Scanet::Application.routes.draw do
   match '/dashboard' => 'dashboard#index', :as => :dashboard
   root :to => 'dashboard#index'
   
-  namespace :admin do
-    namespace :windows do
-      resources :wmi_namespaces, :as => :namespaces
-      resources :wmi_classes, :as => :classes
-      resources :wmi_properties, :as => :properties
-    end
+  namespace :windows do
+    resources :namespaces, :as => :namespaces, :controller => 'wmi_namespaces'
+    resources :classes, :as => :classes, :controller => 'wmi_classes'
+    resources :properties, :as => :properties, :controller => 'wmi_properties'
   end
   
   # The priority is based upon order of creation:
