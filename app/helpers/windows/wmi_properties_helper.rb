@@ -1,0 +1,2 @@
+module Windows::WmiPropertiesHelper
+end

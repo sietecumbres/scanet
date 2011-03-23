@@ -13,8 +13,9 @@ Scanet::Application.routes.draw do
   
   namespace :admin do
     namespace :windows do
-      resources :wmi_namespaces
-      resources :wmi_classes
+      resources :wmi_namespaces, :as => :namespaces
+      resources :wmi_classes, :as => :classes
+      resources :wmi_properties, :as => :properties
     end
   end
   
