@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323005538) do
+ActiveRecord::Schema.define(:version => 20110323013158) do
 
   create_table "logins", :force => true do |t|
     t.integer  "user_id"
@@ -32,6 +32,13 @@ ActiveRecord::Schema.define(:version => 20110323005538) do
     t.string   "verification_token"
     t.boolean  "admin",              :default => false
     t.boolean  "verified",           :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "windows_wmi_classes", :force => true do |t|
+    t.integer  "namespace_id"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
