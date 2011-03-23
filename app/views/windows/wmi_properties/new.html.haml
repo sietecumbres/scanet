@@ -1,2 +1,3 @@
-%h1 Windows::WmiProperties#new
-%p Find me in app/views/windows/wmi_properties/new.html.haml
+%h2 Nueva propiedad
+= semantic_form_for @property, :url => windows_properties_path do |prop|
+  = render :partial => 'form', :object => prop

@@ -1,2 +1,14 @@
-%h1 Windows::WmiProperties#show
-%p Find me in app/views/windows/wmi_properties/show.html.haml
+%h2 Propiedad
+%p
+  %label Clase
+  %label= @property.klass.name
+%p
+  %label Nombre
+  %label= @property.name
+%p
+  %label Tipo
+  %label= @property.class_type
+%p
+  = link_to 'Editar', edit_windows_property_path(@property, @class_parameter)
+  = link_to 'Eliminar', windows_property_path(@property, @class_parameter)
+  = link_to 'Atrás', windows_properties_path(@class_parameter)

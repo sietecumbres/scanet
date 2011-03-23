@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323013158) do
+ActiveRecord::Schema.define(:version => 20110323024422) do
 
   create_table "logins", :force => true do |t|
     t.integer  "user_id"
@@ -45,6 +45,14 @@ ActiveRecord::Schema.define(:version => 20110323013158) do
 
   create_table "windows_wmi_namespaces", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "windows_wmi_properties", :force => true do |t|
+    t.integer  "wmi_class_id"
+    t.string   "name"
+    t.string   "class_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

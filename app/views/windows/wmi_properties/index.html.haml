@@ -1,2 +1,12 @@
-%h1 Windows::WmiProperties#index
-%p Find me in app/views/windows/wmi_properties/index.html.haml
+%h2 Propiedades
+%table
+  - @properties.each do |property|
+    %tr
+      %td= property.klass.name
+      %td= property.name
+      %td= property.class_type
+      %td
+        = link_to 'Ver', windows_property_path(property, @class_parameter)
+        = link_to 'Editar', edit_windows_property_path(property, @class_parameter)
+        = link_to 'Eliminar', windows_property_path(property, @class_parameter), :method => 'delete', :confirm => '¿Está seguro?'
+= link_to 'Nuevo', new_windows_property_path(@class_parameter)

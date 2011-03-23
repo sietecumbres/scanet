@@ -1,7 +1,7 @@
 class Windows::WmiNamespacesController < ApplicationController
   
   def show
-    @namspace = Windows::WmiNamespace.find(params[:id])
+    @namespace = Windows::WmiNamespace.find(params[:id])
   end
   
   def index

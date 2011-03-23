@@ -1,0 +1,10 @@
+= form.inputs do
+  = form.semantic_errors
+  - if @class.present?
+    = form.input :class, :as => :hidden, :value => @class.id, :name => 'class'
+  = form.input :wmi_class_id, :as => :select, :collection => Windows::WmiClass.all.collect{|klass| [klass.name, klass.id]}
+  = form.input :name
+  = form.input :class_type, :as => :select, :collection => Windows::WmiProperty::VALID_TYPES
+= form.buttons do
+  = form.commit_button 'Save'
+  = link_to 'Cancelar', windows_properties_path(@class_parameter)

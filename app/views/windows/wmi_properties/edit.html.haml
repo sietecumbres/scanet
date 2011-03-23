@@ -1,2 +1,3 @@
-%h1 Windows::WmiProperties#edit
-%p Find me in app/views/windows/wmi_properties/edit.html.haml
+%h2 Editar Propiedad
+= semantic_form_for @property, :url => windows_property_path(@property) do |prop|
+  = render :partial => 'form', :object => prop
